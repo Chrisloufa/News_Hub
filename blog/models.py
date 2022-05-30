@@ -43,4 +43,14 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.name}"
 
 
+class Person(models.Model):
+    last_name = models.TextField()
+    first_name = models.TextField()
+    
+    class Meta:
+        ordering = ("last_name", "first_name")
+
+    def __str__(self):
+        return f"{self.last_name}, {self.first_name}"
+
 # Create your models here.
