@@ -2,7 +2,7 @@
 
 News Hub is a website created in a Reddit style blog format to allow users to view and create posts for others to read, comment and like on.
 
-The site is fully responsive and designed in a simplistic and easy to navigate manner. It has been coded using HTML, CSS, JavaScript, Python and Django and the Bootstrap frameworks.
+The site is fully responsive and designed in a simplistic and easy to navigate manner. It has been coded using HTML, CSS, Python and Django and the Bootstrap frameworks.
 
 Below is a screenshot of the finished project generated using [Am I Responsive](https://ui.dev/amiresponsive):
 
@@ -111,11 +111,14 @@ A picture of comment/like feature page can be seen below:
 
 ## Fixed Bugs and Errors
 
+# HTML errors
+
+![HTML errors](media/images/htmlerrors.png)
+
 ## Technologies Used
 
 - HTML
 - CSS
-- JavaScript
 - Python
 - Django
 - Cloudinary
@@ -128,7 +131,6 @@ A picture of comment/like feature page can be seen below:
 - [Google Fonts](https://fonts.google.com/) - The fonts used on the site were imported from Google Fonts
 - [GitHub](https://github.com/) - Was the coding platform used to create and deploy the site.
 - [Heroku](https://id.heroku.com/login) - Used to deploy the site.
-- [JSHint](https://jshint.com/) - Used to check JavaScript functionality.
 - [W3C Markup Validation Service](https://validator.w3.org/) - Used to validate the HTML code on the site.
 - [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/) - Used to validate the CSS code used on the site.
 
@@ -151,6 +153,10 @@ A picture of comment/like feature page can be seen below:
 ## CSS validator
 
 ![CSS validator](media/images/cssvalidator.png)
+
+## Python Testing
+
+Python code was tested to ensure that it met PEP8 style guidelines. This was done within the terminal console, which displayed errors and warnings throughout the project which were in parallel to the project being produced. 
 
 # Deployment
 
