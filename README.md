@@ -29,3 +29,27 @@ As a **Site User** I can **view a list of posts** so that **I can select one
 As a **Site User** I can **view a paginated list of posts** so that **easily select a post to view.**
 
 As a **Site User** I can **click on a post** so that **I can read the full text.**
+
+
+# Agile Planning Environment
+
+## MosCow Method
+
+Using GitHub's useful project board I could ensure that I followed the MosCow method to justify each of my actions through the project. This helped keep good structure during the project development process.
+
+As I was creating a blog style project the User Stories were taking from a previous walkthrough project.
+
+Here is a screenshot of the environment
+
+![Agile-Planning](media/images/moscow.png)
+
+
+# Design
+
+## NewsHub Design
+
+The design was made to be clean and easy to navigate and view. Keeping the colour scheme simple and consistent across the site. Areas of importance stand out by using a strong blue colour to highlight them, where areas of less focus are kept simple and clean using pale colours.
+
+# Colour Scheme
+
+# Typography
