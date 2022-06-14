@@ -58,8 +58,17 @@ The design was made to be clean and easy to navigate and view. Keeping the colou
 
 # Colour Scheme
 
+The colour scheme was kept clean to keep the focus on the articles on the site and not what their surroundings are.
+
 # Typography
 
+The typography on the site was used to be easy to read as it is a blog website where for the most part the users will be reading articles it was important for the font to be simple and easy to read.
+
+# Imagery
+
+The imagery used was to reflect the blog style website that it is, being only a boilerplate image should the user not upload one. Example below;
+
+![Imagery](media/images/imagery.png)
 
 # Wireframes
 
