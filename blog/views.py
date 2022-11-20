@@ -123,3 +123,14 @@ class DeleteComment(DeleteView):
 
     def get_success_url(self):
         return reverse('post_detail', args=[self.object.post.slug])
+
+
+# Class based view to update/edit user comments
+class UpdateComment(UpdateView):
+
+    model = Comment
+    fields = ('body',)
+# After update of the user comment user returns to same blog post
+
+    def get_success_url(self):
+        return reverse('post_detail', args=[self.object.post.slug])
