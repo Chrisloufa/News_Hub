@@ -83,10 +83,9 @@ class PostLike(View):
 class CommentDeleteView(View):
   
     def get(self, request, *args, slug, pk):
-        post = get_object_or_404(Post, slug=slug)
         comments = get_object_or_404(Comment, pk=pk)
 
-        if post(id=self.request.user.id).exists():
+        if (comments.author.id == request.user.id):
             comments.delete()
             
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
