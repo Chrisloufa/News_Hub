@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
+from django.urls import reverse_lazy
 
 
 class PostList(generic.ListView):
@@ -78,3 +79,14 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
+class CommentDeleteView(View):
+  
+    def get(self, request, *args, slug, pk):
+        post = get_object_or_404(Post, slug=slug)
+        comments = get_object_or_404(Comment, pk=pk)
+
+        if post(id=self.request.user.id).exists():
+            comments.delete()
+            
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))

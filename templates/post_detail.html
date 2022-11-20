@@ -80,10 +80,18 @@
                         </span> wrote:
                     </p>
                     {{ comment.body | linebreaks }}
+                    <div>
+                        <small><a href="{% url 'delete_comment' post.slug comment.pk %}" class="post-link">(Delete comment)</a></small>
+                    </div>
                 </div>
+                
+                
                 {% endfor %}
             </div>
         </div>
+
+        
+
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
                 {% if commented %}
@@ -106,5 +114,7 @@
         </div>
     </div>
 </div>
+
+
 
 {% endblock content %}
