@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="tittle">
+    <h1>Delete your Post</h1>
+</div>
+
+<form class="text-center m-3" action="." method="POST">
+    {% csrf_token %}
+    <strong>This post will be deleted. Can't be undone. </strong>
+
+    <p><button class="btn btn-signup center m-3" id="button">Continue and delete</button></p>
+</form>
+
+{%endblock%}

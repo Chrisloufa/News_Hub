@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="tittle">
+    <h1>Edit your Post</h1>
+</div>
+
+{% if user.id == post.author.id %}
+<form class="text-center m-3" action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn-signup">Post</button>
+</form>
+
+{% endif %}
+
+<!-- This was useful as a solution for identifying Username as Id 
+    https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17 
+    Pleease refer to that link for source of code -->
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("user").value = name;
+</script>
+
+{%endblock%}

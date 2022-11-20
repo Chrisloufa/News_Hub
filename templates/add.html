@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="tittle">
+    <h1>Write your post</h1>
+</div>
+
+<form class="text-center m-3" action="." method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-signup" id="button">Post</button>
+</form>
+
+<!-- This was useful as a solution for identifying Username as Id
+https://www.youtube.com/watch?v=TAH01Iy5AuE&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&index=17
+Pleease refer to that link for source of code -->
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("user").value = name;
+</script>
+
+{%endblock%}

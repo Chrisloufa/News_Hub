@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post, Comment
-from .forms import CommentForm
+from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib import messages
 from django.urls import reverse_lazy
+from .models import Post, Comment
+from .forms import CommentForm, PostForm
 
 
 class PostList(generic.ListView):
@@ -87,5 +89,27 @@ class CommentDeleteView(View):
 
         if (comments.author.id == request.user.id):
             comments.delete()
+            comments.save()
+        else:
+            messages.warning(request, 'The comment could not be deleted.')
             
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+
+class AddPost(CreateView):
+        model = Post
+        form_class = PostForm
+        template_name = 'add.html'
+        success_url = reverse_lazy('home')
+
+class UpdatePostView(UpdateView):
+    model = Post
+    form_class = PostForm
+    template_name = 'postupdate.html'
+
+
+class DeletePostView(DeleteView):
+    model = Post
+    template_name = 'deletepost.html'
+    success_url = reverse_lazy('home')

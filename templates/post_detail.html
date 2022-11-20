@@ -58,6 +58,16 @@
                             {{ total_comments }}</strong>
                         {% endwith %}
                     </div>
+
+                    {% if user.id == post.author.id %}
+                    <small>
+                        <p>
+                            <a href="{% url 'update_post' post.slug %}">Edit</a> // <a
+                                href="{% url 'delete' post.slug %}">Delete</a>
+                        </p>
+                    </small>
+                    {% endif %}
+
                 </div>
             </div>
         </div>
@@ -82,10 +92,15 @@
                     {{ comment.body | linebreaks }}
                     <div>
                         <small><a href="{% url 'delete_comment' post.slug comment.pk %}" class="post-link">(Delete comment)</a></small>
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.warning %} class="{{ message.warning }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
                     </div>
                 </div>
-                
-                
                 {% endfor %}
             </div>
         </div>
