@@ -113,3 +113,13 @@ class DeletePostView(DeleteView):
     model = Post
     template_name = 'deletepost.html'
     success_url = reverse_lazy('home')
+
+
+# Class based view to delete user comments
+class DeleteComment(DeleteView):
+
+    model = Comment
+# After deletion of the user comment user returns to same blog post
+
+    def get_success_url(self):
+        return reverse('post_detail', args=[self.object.post.slug])

@@ -90,16 +90,23 @@
                         </span> wrote:
                     </p>
                     {{ comment.body | linebreaks }}
+                    
                     <div>
-                        <small><a href="{% url 'delete_comment' post.slug comment.pk %}" class="post-link">(Delete comment)</a></small>
-                        {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                            <li{% if message.warning %} class="{{ message.warning }}"{% endif %}>{{ message }}</li>
-                            {% endfor %}
-                        </ul>
+                        
+                        {%  if user.username == comment.name %}
+                    <!-- User of the comment will see delete and edit buttons next to their comment -->
+                        <a href="{% url 'delete_comment' comment.id %}" i class="fas fa-trash"> 
+                        Delete</a> 
+   
+                        {% else %}
+
+                        <i class="far fa-comments"></i>
+
                         {% endif %}
+                        
                     </div>
+
+                    <hr>
                 </div>
                 {% endfor %}
             </div>
