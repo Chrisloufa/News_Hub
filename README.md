@@ -40,6 +40,8 @@ As a **Site User** I can **add a new blog post for approval** so that **I p
 
 As a **Site User** I can **edit or delete posts** so that **I can change or remove my posts.**
 
+As a **Site User** I can **edit my profile and change passowrd** so that **I can change and edit password.**
+
 # Agile Planning Environment
 
 ## MosCow Method
