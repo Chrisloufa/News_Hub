@@ -35,11 +35,13 @@
                                 {% csrf_token %}
                                 {% if liked %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="fas fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="fas fa-heart"></i></button>
 
                                 {% else %}
 
-                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i class="far fa-heart"></i></button>
+                                <button type="submit" name="blogpost_id" value="{{post.slug}}" class="btn-like"><i
+                                        class="far fa-heart"></i></button>
 
                                 {% endif %}
 
@@ -50,7 +52,7 @@
                             {% endif %}
                             <span class="text-secondary"> {{ post.number_of_likes }}</span>
                         </strong>
-                        
+
                     </div>
                     <div class="col-1">
                         {% with comments.count as total_comments %}
@@ -62,7 +64,7 @@
                     {% if user.id == post.author.id %}
                     <small>
                         <p>
-                            <a href="{% url 'update_post' post.slug %}" class="fas fa-pen" >Edit</a> // <a
+                            <a href="{% url 'update_post' post.slug %}" class="fas fa-pen">Edit</a> // <a
                                 href="{% url 'delete' post.slug %}" i class="fas fa-trash">Delete</a>
                         </p>
                     </small>
@@ -90,20 +92,20 @@
                         </span> wrote:
                     </p>
                     {{ comment.body | linebreaks }}
-                    
+
                     <div>
 
                         <small>
-                        
+
                             {%  if user.username == comment.name %}
-                        <!-- User of the comment will see delete and edit buttons next to their comment -->
+                            <!-- User of the comment will see delete and edit buttons next to their comment -->
 
-                            </form>    
+                            </form>
                             <a href="{% url 'update_comment' comment.id %}" class="fas fa-pen"></i> Edit</a>
-                            </form>    
+                            </form>
 
-                            <a href="{% url 'delete_comment' comment.id %}" i class="fas fa-trash"> 
-                            Delete</a> 
+                            <a href="{% url 'delete_comment' comment.id %}" i class="fas fa-trash">
+                                Delete</a>
 
                             {% else %}
 
@@ -111,7 +113,7 @@
 
                             {% endif %}
                         </small>
-                        
+
                     </div>
 
                     <hr>
@@ -120,7 +122,7 @@
             </div>
         </div>
 
-        
+
 
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">

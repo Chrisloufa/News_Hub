@@ -1,11 +1,13 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.views.generic import CreateView, UpdateView, DeleteView
+from django.contrib.auth.views import PasswordChangeView
 from django.contrib import messages
 from django.urls import reverse_lazy
 from .models import Post, Comment
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, EditProfileForm, PasswordChangingForm
 
 
 class PostList(generic.ListView):
@@ -36,7 +38,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
@@ -82,26 +84,12 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class CommentDeleteView(View):
-  
-    def get(self, request, *args, slug, pk):
-        comments = get_object_or_404(Comment, pk=pk)
-
-        if (comments.author.id == request.user.id):
-            comments.delete()
-            comments.save()
-        else:
-            messages.warning(request, 'The comment could not be deleted.')
-            
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
-
-
-
 class AddPost(CreateView):
-        model = Post
-        form_class = PostForm
-        template_name = 'add.html'
-        success_url = reverse_lazy('home')
+    model = Post
+    form_class = PostForm
+    template_name = 'add.html'
+    success_url = reverse_lazy('home')
+
 
 class UpdatePostView(UpdateView):
     model = Post
@@ -134,3 +122,23 @@ class UpdateComment(UpdateView):
 
     def get_success_url(self):
         return reverse('post_detail', args=[self.object.post.slug])
+
+
+class UserEditView(UpdateView):
+    form_class = EditProfileForm
+    template_name = 'editprofile.html'
+    success_url = reverse_lazy('home')
+
+    def get_object(self):
+        return self.request.user
+
+
+class PasswordsChangeView(PasswordChangeView):
+    model = Post
+    template_name = 'change_password.html'
+    form_class = PasswordChangingForm
+    success_url = reverse_lazy('password_success')
+
+
+def password_success(request):
+    return render(request, 'successpassword.html', {})

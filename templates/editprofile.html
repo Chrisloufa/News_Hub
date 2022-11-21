@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tittle">
+    <h1>Edit Profile</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-8 mt-3 offset-md-2">
+        <form class="signup text-center" id="signup_form" method="post" action="{% url 'edit_profile' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="mt-3">
+                <button onclick="location.href='{% url 'change_password' %}'" class="btn btn-signup" type="button"
+                    id="button">
+                    Change Password
+                </button>
+            </div>
+            <div class="mt-3">
+                <button class="btn btn-signup" id="button" type="submit">
+                    Confirm
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

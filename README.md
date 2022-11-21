@@ -34,6 +34,11 @@ As a **Site User** I can **view a paginated list of posts** so that **easil
 
 As a **Site User** I can **click on a post** so that **I can read the full text.**
 
+As a **Site User** I can **edit or delete my own comments** so that **I can remove or change what I have commented.**
+
+As a **Site User** I can **add a new blog post for approval** so that **I post new articles.**
+
+As a **Site User** I can **edit or delete posts** so that **I can change or remove my posts.**
 
 # Agile Planning Environment
 
